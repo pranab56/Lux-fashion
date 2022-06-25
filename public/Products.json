@@ -1,0 +1,108 @@
+[
+
+    {
+        "id":1,
+        "img":"https://i.ibb.co/2Yk0SQQ/p15.jpg",
+        "name":"Woman-jecket",
+        "price":80
+    },
+    {
+        "id":2,
+        "img":"https://i.ibb.co/wwbNYSH/p-16.png",
+        "name":"Woman-jecket",
+        "price":80
+    },
+    {
+        "id":3,
+        "img":"https://i.ibb.co/7RQTTJX/p-17.jpg",
+        "name":"hoodie jacket",
+        "price":100
+    },
+    {
+        "id":4,
+        "img":"https://i.ibb.co/F3PJHzk/p-18.jpg",
+        "name":"hoodie jacket",
+        "price":115
+    },
+    {
+    
+        "id":5,
+        "img":"https://i.ibb.co/LJRgMdZ/09-cut-to-comfortably-fit-2c-this-men-27s-shirt-with-roll-up-slee-500x500.png",
+        "name":"Black-shirt",
+        "price":80
+    },
+    {
+        "id":6,
+        "img":"https://i.ibb.co/jzfh9ZR/p2.png",
+        "name":"women's dress",
+        "price":68
+    },
+    {
+        "id":7,
+        "img":"https://i.ibb.co/7R8TcjX/p3.jpg",
+        "name":"man pant",
+        "price":70
+    },
+    {
+        "id":8,
+        "img":"https://i.ibb.co/r2Dfh9M/p4.jpg",
+        "name":"man jecket",
+        "price":75
+    },
+    {
+        "id":9,
+        "img":"https://i.ibb.co/Y0bW92K/p5.jpg",
+        "name":"man jecket",
+        "price":58
+    },
+    {
+        "id":10,
+        "img":"https://i.ibb.co/MNDg68z/p6.jpg",
+        "name":"women's pant",
+        "price":80
+    },
+    {
+        "id":11,
+        "img":"https://i.ibb.co/2WhHvnp/p7.jpg",
+        "name":"red-shirt",
+        "price":65
+    },
+    {
+        "id":12,
+        "img":"https://i.ibb.co/52KstcF/p8.jpg",
+        "name":"Man jecket",
+        "price":65
+    },
+    {
+        "id":13,
+        "img":"https://i.ibb.co/tJ7LN4P/p9.jpg",
+        "name":"Man jecket",
+        "price":65
+    },
+    {
+        "id":14,
+        "img":"https://i.ibb.co/gSmDcLs/p10.jpg",
+        "name":"Man jecket",
+        "price":65
+    },
+    {
+        "id":15,
+        "img":"https://i.ibb.co/Mp5kRNY/p11.png",
+        "name":"check-shirt",
+        "price":80
+    },
+ 
+    {
+        "id":16,
+        "img":"https://i.ibb.co/7KDyNBm/p13.jpg",
+        "name":"T-shirt",
+        "price":110
+    },
+    {
+        "id":17,
+        "img":"https://i.ibb.co/3CxK4cL/p-14.jpg",
+        "name":"Man-jecket",
+        "price":110
+    }
+ 
+]

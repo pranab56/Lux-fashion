@@ -1,0 +1,9 @@
+#blog:nth-child(1) {
+    background-color: #FF5733;
+  }
+#blog:nth-child(2) {
+    background-color: rgb(14, 14, 113);
+  }
+#blog:nth-child(3) {
+    background-color: #FF5733;
+  }

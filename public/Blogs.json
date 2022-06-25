@@ -1,0 +1,20 @@
+[
+    {
+        "id":"21",
+        "img":"https://i.ibb.co/d6QMrJD/logo1.png",
+        "name":"Fast Delivery",
+        "description":"variations of passages of Lorem Ipsum available"
+    },
+    {
+        "id":"22",
+        "img":"https://i.ibb.co/9nGy2Nz/shipping.png",
+        "name":"Fast Delivery",
+        "description":"variations of passages of Lorem Ipsum available"
+    },
+    {
+        "id":"23",
+        "img":"https://i.ibb.co/0JDb8dJ/logo3.png",
+        "name":"Fast Delivery",
+        "description":"variations of passages of Lorem Ipsum available"
+    }
+]
