@@ -4,48 +4,41 @@ import { useForm } from "react-hook-form";
 
 
 const UpdateProfile = () => {
-  
   const { register, formState: { errors }, handleSubmit,} = useForm();
-  const imageStorageKey='89faf5ad1fc22b4865feac0683dcdff1';
   const onSubmit = (data) => {
-    console.log(data);
-    const image = data.image[0];
-    const formData = new FormData();
-    formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
+    const imageKey='89faf5ad1fc22b4865feac0683dcdff1';
+    const image=data.image[0];
+    const formData=new FormData();
+    formData.append('image',image);
+    fetch(`https://api.imgbb.com/1/upload?key=${imageKey}`,{
+      method:"POST",
+      body:formData,
     })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        if (result.success) {
-          const image = result.data.url;
-          const updateUser = {
-            name: data.name,
-            data:data.date,
-            number:data.number,
-            gender:data.Gender,
-            address:data.address,
-            image: image,
-          };
-          console.log(updateUser);
-          fetch("http://localhost:5000/profile", {
-            method: "POST", // or 'PUT'
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updateUser),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              if (data) {
-             toast.success('profile updated')
-              }
-            });
+    .then(res=>res.json())
+    .then(result=>{
+      if(result.success){
+        const image=result.data.url;
+        const profileDetails={
+          name:data.name,
+          date:data.date,
+          number:data.number,
+          gender:data.Gender,
+          address:data.address,
+          image:image
         }
-      });
+        fetch('http://localhost:5000/profile',{
+          method:'POST',
+          headers:{
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(profileDetails),
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          toast.success('profile updated')
+        })
+      }
+    })
 
      
 
