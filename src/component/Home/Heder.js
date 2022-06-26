@@ -43,7 +43,7 @@ const Heder = () => {
     </ul>
   </div>
   <div class="navbar-end">
-    <Link to={'/order'}><svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mr-8 hover:text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <Link to={'/order'}><svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mr-5 hover:text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
 </svg></Link>
 
@@ -54,10 +54,12 @@ const Heder = () => {
     
     <div class="relative inline-block">
         
-        <button onClick={()=>setOpen(!open)} class="relative hover:text-rose-500 z-10 block p-2 text-gray-700 bg-white border border-transparent rounded-md dark:text-white focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:bg-gray-800 focus:outline-none">
+        <button onClick={()=>setOpen(!open)} class="relative hover:text-rose-500 z-10 block p-2 mr-6 text-gray-700 bg-white  rounded-md dark:text-white  focus:ring-opacity-40 dark:bg-gray-800 ">
         
         {
-          user.photoURL ? <img className='w-9 h-9 rounded-full' src={`${user.photoURL}`} alt="" /> :<>
+          user.photoURL ? <img className='w-9 h-9 rounded-full' src={`${user.photoURL}`} alt="" /> 
+          :
+          <>
           <svg width="30" fill="currentColor" height="30" class="text-gray-800" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1523 1339q-22-155-87.5-257.5t-184.5-118.5q-67 74-159.5 115.5t-195.5 41.5-195.5-41.5-159.5-115.5q-119 16-184.5 118.5t-87.5 257.5q106 150 271 237.5t356 87.5 356-87.5 271-237.5zm-243-699q0-159-112.5-271.5t-271.5-112.5-271.5 112.5-112.5 271.5 112.5 271.5 271.5 112.5 271.5-112.5 112.5-271.5zm512 256q0 182-71 347.5t-190.5 286-285.5 191.5-349 71q-182 0-348-71t-286-191-191-286-71-348 71-348 191-286 286-191 348-71 348 71 286 191 191 286 71 348z">
                 </path>
@@ -67,7 +69,7 @@ const Heder = () => {
         </button>
 
         
-        <div class={`absolute right-0 z-20 w-48 py-2 mt-6 bg-white rounded-md shadow-xl dark:bg-gray-800 ${open ? "top-6":"top-[-330px]"}`}>
+        <div class={`absolute right-0 z-20 w-48 py-2 mt-6 bg-white rounded-md shadow-xl dark:bg-gray-800 ${open ? "top-[-330px]" :"top-6"}`}>
         {
           user ? <Link to={'/myProfile'} class="block px-14 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> your profile </Link> : navigate('/login')
         }

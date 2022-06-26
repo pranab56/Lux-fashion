@@ -1,14 +1,10 @@
-import emailjs from 'emailjs-com'
 import React from 'react';
-import toast from 'react-hot-toast';
 
-const Contact = () => {
-	const handleContact=(e)=>{
-		e.preventDefault()
-		emailjs.sendForm('service_53ob0nq','template_sh5d3hc',e.target,'_kQHiys6gD-jBjBQL')
-		e.target.reset('')
-		toast.success("Thank you Sir")
-	}
+const UpdateProfile = () => {
+    const handleContact=e=>{
+        e.preventDefault();
+        
+    }
     return (
         <div className='shadow-2xl shadow-gray-400 mx-96 rounded-lg p-10 mt-3'>
           <form onSubmit={handleContact}>
@@ -46,4 +42,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default UpdateProfile;

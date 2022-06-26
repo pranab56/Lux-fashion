@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../Page/Firebase.init';
@@ -12,15 +11,17 @@ const Register = () => {
     const [createUserWithEmailAndPassword, user,loading,error, ] = useCreateUserWithEmailAndPassword(auth);
     const [sendEmailVerification, sending, VerifyError] = useSendEmailVerification(auth);
     const [updateProfile, updating, ProfileError] = useUpdateProfile(auth);
+    
   
     const onSubmit = async (data) => {
        await createUserWithEmailAndPassword(data.email,data.password)
        await sendEmailVerification()
        await updateProfile({ displayName:data.name })
+       await data.target.reset();
     };
     if(user ||  updating){
       navigate('/home')
-      swal("Good job!", "You clicked the button!", "success");
+      
     }
     if(loading){
       return <Loading></Loading>
@@ -29,78 +30,83 @@ const Register = () => {
         <div>
             
   <div class="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-2xl dark:bg-gray-800 mt-10">
-        <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">Lux Fashion</h1>
+        <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">Register</h1>
 
         <form class="mt-6" onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label for="username" class="block text-sm text-gray-800 dark:text-gray-200">Name</label>
-                <input type="text"
-                {...register("name",{
-                    required:{
-                      value:true,
-                      message:'Name is required'
-                    },
-                    pattern:{
-                        message: 'Provide is valid Email'
-                    }
-                  })} 
-                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
-            </div>
-            {errors.text?.type === "required" && (
-            <p className="text-red-500">{errors.text.message}</p>
+        <div class="relative mt-10 z-0 mb-6 group">
+      <input type="text" name="email" id="floating_repeat_password"
+       {...register("name", {
+        required: {
+          value: true,
+          message: "Name is required",
+        },
+        pattern: {
+          value:{
+
+          }
+           
+        },
+      })}
+      class="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
+  </div>
+  {errors.name?.type === "required" && (
+            <p className="text-red-500"><span>{errors.name.message}</span></p>
           )}
-          {errors.text?.type === "pattern" && (
-            <p className="text-red-500">{errors.text.message}</p>
+          {errors.name?.type === "pattern" && (
+            <p className="text-red-500"><span>{errors.name.message}</span></p>
           )}
-            <div>
-                <label for="username" class="block text-sm text-gray-800 dark:text-gray-200">Email</label>
-                <input type="email"
-                {...register("email",{
-                    required:{
-                      value:true,
-                      message:'Email is required'
-                    },
-                    pattern: {
-                      value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                      message: 'Provide is valid Email' 
-                    }
-                  })} 
-                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
-            </div>
-            {errors.email?.type === "required" && (
-            <p className="text-red-500">{errors.email.message}</p>
+
+
+        <div class="relative mt-7 z-0 mb-6 group">
+      <input type="email" name="email" id="floating_repeat_password"
+       {...register("email", {
+        required: {
+          value: true,
+          message: "Email is required",
+        },
+        pattern: {
+          value:
+            /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+          message: "Provide is valid Email",
+        },
+      })}
+      class="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+  </div>
+  {errors.email?.type === "required" && (
+            <p className="text-red-500"><span>{errors.email.message}</span></p>
           )}
           {errors.email?.type === "pattern" && (
-            <p className="text-red-500">{errors.email.message}</p>
+            <p className="text-red-500"><span>{errors.email.message}</span></p>
           )}
+        
 
-            <div class="mt-4">
-                <div class="flex items-center justify-between">
-                    <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Password</label>
-                
-                </div>
 
-                <input type="password"
-                {...register("password", {
-                    required: {
-                      value: true,
-                      message: "password is required",
-                    },
-                    minLength: {
-                      value: 6,
-                      message: "Provide At last 6 character ",
-                    },
-                  })}
-                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
-            </div>
-            {errors.password?.type === "required" && (
-            <p className="text-red-500">{errors.password.message}</p>
+<div class="relative mt-7 z-0 mb-6 group">
+      <input type="password" name="email" id="floating_repeat_password"
+        {...register("password", {
+                required: {
+                  value: true,
+                  message: "password is required",
+                },
+                minLength: {
+                  value: 6,
+                  message: "Provide At last 6 character ",
+                },
+              })}
+      class="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+  </div>
+  {errors.password?.type === "required" && (
+            <p className="text-red-500"><i>{errors.password.message}</i></p>
           )}
           {errors.password?.type === "minLength" && (
-            <p className="text-red-500">{errors.password.message}</p>
+            <p className="text-red-500"><i>{errors.password.message}</i></p>
           )}
 
-            <div class="mt-6">
+
+            <div class="mt-10">
                 <button
                     class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-rose-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                     Register

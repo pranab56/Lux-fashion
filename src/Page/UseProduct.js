@@ -1,10 +1,9 @@
-import React from 'react';
 import {useQuery } from 'react-query'
-import Loading from './Loading';
+
 
 const UseProduct = () => {
-    const { isLoading, error, data:products } = useQuery('products', () =>
-    fetch('Products.json').then(res =>
+    const { isLoading,data:products } = useQuery('products', () =>
+    fetch('http://localhost:5000/shop').then(res =>
       res.json()
     )
   )
