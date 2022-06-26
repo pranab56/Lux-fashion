@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Outlet } from 'react-router-dom';
 import auth from '../../Page/Firebase.init';
 import Loading from '../../Page/Loading';
+import UpdateProfile from './UpdateProfile';
 
 const MyProfile = () => {
   const [open,setOpen]=useState(false);
@@ -13,7 +14,7 @@ const MyProfile = () => {
      }
     return (
         
-            <div className={`flex-col  py-20 w-96 mx-auto max-w-lg p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100 ${open ? "top-96":"mr-[880px]"}`}>
+            <div className={`flex-col  py-20 w-96 mx-auto max-w-lg p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100 ${open ? "" : "ml-[200px] h-[640px] pt-[-100px] whitespace-pre-line"}`}>
 
 
 	{
@@ -24,15 +25,24 @@ const MyProfile = () => {
             </svg>
           </>
         }
+      
 
 	<div className="space-y-2 mt-3  divide-gray-700">
 	<h4 className='text-start text-lg font-serif'>Name: <span className='font-serif ml-1'>{user?.displayName}</span></h4>
 	<h4 className='text-start text-lg font-serif'>Email: <span className='font-serif ml-1'>{user?.email}</span></h4>
         <button onClick={()=>setOpen(!open)} className='btn btn-success text-white border-none hover:btn-warning mx-24'>Update</button>
+        
 	</div>
-        <Outlet>
-          <p>pronab</p>
-        </Outlet>
+        <Outlet></Outlet>
+       <div className={`${open ? "" : " mt-[-340px] w-min whitespace-pre-line"}`}>
+       {
+          !open && <UpdateProfile 
+          open={open}
+          setOpen={setOpen}
+          ></UpdateProfile>
+        }
+        
+       </div>
 </div>
         
     );
