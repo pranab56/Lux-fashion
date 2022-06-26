@@ -7,7 +7,7 @@ import Loading from '../../Page/Loading';
 import UpdateProfile from './UpdateProfile';
 
 const MyProfile = () => {
-  const [open,setOpen]=useState(false);
+  const [open,setOpen]=useState(true);
     const [user,loading]=useAuthState(auth);
      if(loading){
         return <Loading></Loading>
@@ -31,7 +31,7 @@ const MyProfile = () => {
 	<h4 className='text-start text-lg font-serif'>Name: <span className='font-serif ml-1'>{user?.displayName}</span></h4>
 	<h4 className='text-start text-lg font-serif'>Email: <span className='font-serif ml-1'>{user?.email}</span></h4>
         {
-          !open ? "" : <button onClick={()=>setOpen(!open)} className='btn btn-success text-white border-none hover:btn-warning mx-24'>Update</button>
+          open ? <button onClick={()=>setOpen(!open)} className='btn btn-success text-white border-none hover:btn-warning mx-24'>Update</button> : <button onClick={()=>setOpen(!open)} className='btn btn-success text-white border-none hover:btn-warning mx-24'>Done</button>
         }
         
 	</div>
