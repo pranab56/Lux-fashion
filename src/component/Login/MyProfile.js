@@ -1,16 +1,19 @@
 import React from 'react';
+import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Outlet } from 'react-router-dom';
 import auth from '../../Page/Firebase.init';
 import Loading from '../../Page/Loading';
 
 const MyProfile = () => {
+  const [open,setOpen]=useState(false);
     const [user,loading]=useAuthState(auth);
      if(loading){
         return <Loading></Loading>
      }
     return (
         
-            <div className="flex-col py-20 w-96 mx-auto max-w-lg p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
+            <div className={`flex-col  py-20 w-96 mx-auto max-w-lg p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100 ${open ? "top-96":"mr-[880px]"}`}>
 
 
 	{
@@ -25,8 +28,11 @@ const MyProfile = () => {
 	<div className="space-y-2 mt-3  divide-gray-700">
 	<h4 className='text-start text-lg font-serif'>Name: <span className='font-serif ml-1'>{user?.displayName}</span></h4>
 	<h4 className='text-start text-lg font-serif'>Email: <span className='font-serif ml-1'>{user?.email}</span></h4>
-        <button className='btn btn-success text-white border-none hover:btn-warning mx-24'>Update</button>
+        <button onClick={()=>setOpen(!open)} className='btn btn-success text-white border-none hover:btn-warning mx-24'>Update</button>
 	</div>
+        <Outlet>
+          <p>pronab</p>
+        </Outlet>
 </div>
         
     );

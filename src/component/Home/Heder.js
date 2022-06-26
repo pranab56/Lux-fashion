@@ -9,7 +9,7 @@ import Loading from '../../Page/Loading';
 import { useState } from 'react';
 
 const Heder = () => {
-  const [open,setOpen]=useState(false);
+  const [open,setOpen]=useState(true);
   const navigate=useNavigate()
   const [user, loading, error] = useAuthState(auth);
   const logout = () => {
