@@ -1,14 +1,40 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useEffect } from 'react';
+
 import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import auth from '../../Page/Firebase.init';
 import Loading from '../../Page/Loading';
 import UpdateProfile from './UpdateProfile';
 
 const MyProfile = () => {
   const [open,setOpen]=useState(true);
+  const [users,setUsers]=useState([]);
+  console.log(users);
+  const navigate=useNavigate()
     const [user,loading]=useAuthState(auth);
+   useEffect(()=>{
+    if(user){
+      fetch(`http://localhost:5000/profile?email=${user.email}`,{
+        method:"GET",
+        headers:{
+          'authorization':`bearer ${localStorage.getItem('accessToken')}`
+        }
+      })
+      .then(res=>{
+        if(res.status===403 || res.status===401){
+          signOut(auth);
+          localStorage.removeItem('accessToken')
+          navigate('/home');
+
+        }
+        return res.json()
+      })
+      .then(data=>setUsers(data))
+    }
+   },[user])
      if(loading){
         return <Loading></Loading>
      }
