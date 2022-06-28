@@ -13,6 +13,7 @@ import MyProfile from './component/Login/MyProfile';
 import RequireAuth from './Page/RequireAuth';
 import { Toaster } from 'react-hot-toast';
 import UpdateProfile from './component/Login/UpdateProfile';
+import ProductDetails from './component/Products/ProductDetails';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         </RequireAuth>
         }></Route>
         <Route path='/updateProfile' element={<UpdateProfile></UpdateProfile>}></Route>
+        <Route path='/productdetails/:id' element={<ProductDetails></ProductDetails>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
         
       </Routes>

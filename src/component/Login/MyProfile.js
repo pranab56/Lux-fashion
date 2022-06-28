@@ -1,10 +1,10 @@
-
 import React from "react";
+
 
 
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Outlet } from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import auth from "../../Page/Firebase.init";
 import Loading from "../../Page/Loading";
 import UpdateProfile from "./UpdateProfile";
@@ -12,10 +12,6 @@ import UpdateProfile from "./UpdateProfile";
 const MyProfile = () => {
   const [open, setOpen] = useState(true);
   const [user, loading] = useAuthState(auth);
-
-  
-  
-
 
   if (loading) {
     return <Loading></Loading>;
