@@ -3,6 +3,9 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 const Contact = () => {
+
+
+
 	const handleContact=(e)=>{
 		e.preventDefault()
 		emailjs.sendForm('service_53ob0nq','template_sh5d3hc',e.target,'_kQHiys6gD-jBjBQL')
