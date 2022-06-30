@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../Page/Firebase.init';
 import Loading from '../../Page/Loading';
+import useToken from '../../Page/useToken';
 
 const Register = () => {
   const navigate=useNavigate()
@@ -11,15 +12,17 @@ const Register = () => {
     const [createUserWithEmailAndPassword, user,loading,error, ] = useCreateUserWithEmailAndPassword(auth);
     const [sendEmailVerification, sending, VerifyError] = useSendEmailVerification(auth);
     const [updateProfile, updating, ProfileError] = useUpdateProfile(auth);
-    
+
+    const [token]=useToken(user ||  updating)
   
     const onSubmit = async (data) => {
        await createUserWithEmailAndPassword(data.email,data.password)
        await sendEmailVerification()
        await updateProfile({ displayName:data.name })
-       await data.target.reset();
+       await data.target?.reset();
     };
-    if(user ||  updating){
+    if(token){
+      
       navigate('/home')
       
     }
@@ -29,11 +32,11 @@ const Register = () => {
     return (
         <div>
             
-  <div class="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-2xl dark:bg-gray-800 mt-10">
-        <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">Register</h1>
+  <div className="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-2xl dark:bg-gray-800 mt-10">
+        <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Register</h1>
 
-        <form class="mt-6" onSubmit={handleSubmit(onSubmit)}>
-        <div class="relative mt-10 z-0 mb-6 group">
+        <form className="mt-6" onSubmit={handleSubmit(onSubmit)}>
+        <div className="relative mt-10 z-0 mb-6 group">
       <input type="text" name="email" id="floating_repeat_password"
        {...register("name", {
         required: {
@@ -47,8 +50,8 @@ const Register = () => {
            
         },
       })}
-      class="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
+      className="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
   </div>
   {errors.name?.type === "required" && (
             <p className="text-red-500"><span>{errors.name.message}</span></p>
@@ -58,7 +61,7 @@ const Register = () => {
           )}
 
 
-        <div class="relative mt-7 z-0 mb-6 group">
+        <div className="relative mt-7 z-0 mb-6 group">
       <input type="email" name="email" id="floating_repeat_password"
        {...register("email", {
         required: {
@@ -71,8 +74,8 @@ const Register = () => {
           message: "Provide is valid Email",
         },
       })}
-      class="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+      className="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
   </div>
   {errors.email?.type === "required" && (
             <p className="text-red-500"><span>{errors.email.message}</span></p>
@@ -83,7 +86,7 @@ const Register = () => {
         
 
 
-<div class="relative mt-7 z-0 mb-6 group">
+<div className="relative mt-7 z-0 mb-6 group">
       <input type="password" name="email" id="floating_repeat_password"
         {...register("password", {
                 required: {
@@ -95,8 +98,8 @@ const Register = () => {
                   message: "Provide At last 6 character ",
                 },
               })}
-      class="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+      className="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
   </div>
   {errors.password?.type === "required" && (
             <p className="text-red-500"><i>{errors.password.message}</i></p>
@@ -106,9 +109,9 @@ const Register = () => {
           )}
 
 
-            <div class="mt-10">
+            <div className="mt-10">
                 <button
-                    class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-rose-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+                    className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-rose-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                     Register
                 </button>
             </div>
@@ -118,8 +121,8 @@ const Register = () => {
 
        
 
-        <p class="mt-8 text-xs font-light text-center text-gray-400"> Already account? <Link to={'/login'}
-                class="font-medium text-gray-700 dark:text-gray-200 hover:underline">Login</Link></p>
+        <p className="mt-8 text-xs font-light text-center text-gray-400"> Already account? <Link to={'/login'}
+                className="font-medium text-gray-700 dark:text-gray-200 hover:underline">Login</Link></p>
     </div>
         </div>
     );

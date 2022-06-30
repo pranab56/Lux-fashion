@@ -35,7 +35,7 @@ const Home = () => {
             }
         </div>
       <div className='block ml-16 lg:ml-0 lg:flex justify-center '>
-      <Link to={'/product'} class="mt-6 shrink-0 rounded-md w-full md:w-auto lg:mt-8 py-2 md:py-3 px-20  duration-700  items-center text-base border-2 bg-rose-500 border-white transition hover:-translate-y-1 hover:bg-gray-100 hover:text-gray-800 font-medium text-white">
+      <Link to={'/product'} className="mt-6 shrink-0 rounded-md w-full md:w-auto lg:mt-8 py-2 md:py-3 px-20  duration-700  items-center text-base border-2 bg-rose-500 border-white transition hover:-translate-y-1 hover:bg-gray-100 hover:text-gray-800 font-medium text-white">
                 Explore Now
             </Link>  
       </div>

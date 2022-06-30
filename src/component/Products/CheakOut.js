@@ -2,18 +2,18 @@ import React from 'react';
 
 const CheakOut = (props) => {
     const {cart}=props;
-    console.log(cart);
+    
     let total=0;
     let shipping=0;
     for(const product of cart){
         total=total+parseInt(product.price);
         shipping=shipping+parseInt(product.shipping);
     }
-    const num=parseInt(total*0.1);
-    const tax=num
+    const num=total*0.1;
+    const tax=num.toFixed(2)
     
-    const subTotal=total+shipping+tax;
-    console.log(total,shipping,tax);
+    const subTotal=total+shipping+parseInt(tax);
+    
      
     return (
         

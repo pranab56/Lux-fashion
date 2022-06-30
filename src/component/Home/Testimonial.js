@@ -5,14 +5,14 @@ const Testimonial = () => {
         <div>
             
         
-        <h1 class="md:text-4xl lg:text-5xl text-2xl font-semibold px-4 leading-10 text-gray-800 dark:text-white   mt-32 text-center">Customer's Testimonial</h1>
+        <h1 className="md:text-4xl lg:text-5xl text-2xl font-semibold px-4 leading-10 text-gray-800 dark:text-white   mt-32 text-center">Customer's Testimonial</h1>
         <div className="bg-rose-500 h-1 w-32 mx-auto mt-4">
 
         </div>
-        <div class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:px-20 px-10 py-20 gap-6">
+        <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:px-20 px-10 py-20 gap-6">
             <div>
-                <div class="group w-full bg-white dark:bg-gray-800  relative flex flex-col items-center hover:bg-rose-500 cursor-pointer shadow-md md:p-12 p-6">
-                    <div class="text-gray-600 dark:text-gray-200   group-hover:text-white flex flex-col items-center">
+                <div className="group w-full bg-white dark:bg-gray-800  relative flex flex-col items-center hover:bg-rose-500 cursor-pointer shadow-md md:p-12 p-6">
+                    <div className="text-gray-600 dark:text-gray-200   group-hover:text-white flex flex-col items-center">
                         <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
                                 <path d="M25.2578 14.3309H19.2969C19.3988 9.55819 20.6309 9.01642 22.1785 8.86178L22.7753 8.78051V3.53242L22.0874 3.57292C20.0666 3.69783 17.8323 4.09805 16.3417 6.11965C15.035 7.89183 14.459 10.7871 14.459 15.2316V23.4673H25.2578V14.3309Z" fill="currentColor" />
@@ -24,9 +24,9 @@ const Testimonial = () => {
                                 </clipPath>
                             </defs>
                         </svg>
-                        <p class="xl:w-80 text-base leading-normal text-center mt-4">When our designs need an expert opinion or approval, I know I can rely on your agency Thank you for all your help-I will be recommending you to everyone</p>
+                        <p className="xl:w-80 text-base leading-normal text-center mt-4">When our designs need an expert opinion or approval, I know I can rely on your agency Thank you for all your help-I will be recommending you to everyone</p>
                     </div>
-                    <div class="text-white dark:text-gray-800 group-hover:text-rose-500 absolute bottom-0 -mb-6">
+                    <div className="text-white dark:text-gray-800 group-hover:text-rose-500 absolute bottom-0 -mb-6">
                         <svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_dd)">
                                 <path d="M17 19L28.2583 3.25H5.74167L17 19Z" fill="currentColor" />
@@ -51,16 +51,16 @@ const Testimonial = () => {
                         </svg>
                     </div>
                 </div>
-                <div class="flex flex-col items-center justify-center mt-10">
-                    <img src="https://i.ibb.co/ZgF5Zzz/avatar-1.png" alt="profile pictre" class="w-12 h-12" />
-                    <p class="text-base font-semibold leading-4 my-2 text-gray-800 dark:text-white  ">Tom Koch</p>
-                    <p class="text-base leading-4 text-center text-gray-600 dark:text-gray-200  ">Developer</p>
+                <div className="flex flex-col items-center justify-center mt-10">
+                    <img src="https://i.ibb.co/ZgF5Zzz/avatar-1.png" alt="profile pictre" className="w-12 h-12" />
+                    <p className="text-base font-semibold leading-4 my-2 text-gray-800 dark:text-white  ">Tom Koch</p>
+                    <p className="text-base leading-4 text-center text-gray-600 dark:text-gray-200  ">Developer</p>
                 </div>
             </div>
             <div>
-                <div class="group w-full bg-white dark:bg-gray-800  relative flex flex-col items-center hover:bg-rose-500 cursor-pointer shadow-md md:p-12 p-6">
-                    <div class="text-gray-600 dark:text-gray-200   group-hover:text-white flex flex-col items-center">
-                        <svg class="" width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div className="group w-full bg-white dark:bg-gray-800  relative flex flex-col items-center hover:bg-rose-500 cursor-pointer shadow-md md:p-12 p-6">
+                    <div className="text-gray-600 dark:text-gray-200   group-hover:text-white flex flex-col items-center">
+                        <svg className="" width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
                                 <path d="M25.2578 14.3309H19.2969C19.3988 9.55819 20.6309 9.01642 22.1785 8.86178L22.7753 8.78051V3.53242L22.0874 3.57292C20.0666 3.69783 17.8323 4.09805 16.3417 6.11965C15.035 7.89183 14.459 10.7871 14.459 15.2316V23.4673H25.2578V14.3309Z" fill="currentColor" />
                                 <path d="M11.48 23.4673V14.3309H5.59859C5.70049 9.55819 6.89283 9.01642 8.44042 8.86178L8.99749 8.78051V3.53242L8.34931 3.57292C6.32844 3.69783 4.07421 4.09805 2.5836 6.11965C1.27707 7.89183 0.681147 10.7871 0.681147 15.2316V23.4673H11.48Z" fill="currentColor" />
@@ -71,9 +71,9 @@ const Testimonial = () => {
                                 </clipPath>
                             </defs>
                         </svg>
-                        <p class="xl:w-80 text-base leading-normal text-center mt-4">When our designs need an expert opinion or approval, I know I can rely on your agency Thank you for all your help-I will be recommending you to everyone</p>
+                        <p className="xl:w-80 text-base leading-normal text-center mt-4">When our designs need an expert opinion or approval, I know I can rely on your agency Thank you for all your help-I will be recommending you to everyone</p>
                     </div>
-                    <div class="text-white dark:text-gray-800 group-hover:text-rose-500 absolute bottom-0 -mb-6">
+                    <div className="text-white dark:text-gray-800 group-hover:text-rose-500 absolute bottom-0 -mb-6">
                         <svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_dd)">
                                 <path d="M17 19L28.2583 3.25H5.74167L17 19Z" fill="currentColor" />
@@ -98,15 +98,15 @@ const Testimonial = () => {
                         </svg>
                     </div>
                 </div>
-                <div class="flex flex-col items-center justify-center mt-10">
-                    <img src="https://i.ibb.co/8BLjmqz/avatar-2.png" alt="profile pictre" class="w-12 h-12" />
-                    <p class="text-base font-semibold leading-4 my-2 text-gray-800 dark:text-white  ">Alan Max</p>
-                    <p class="text-base leading-4 text-center text-gray-600 dark:text-gray-200  ">Designer</p>
+                <div className="flex flex-col items-center justify-center mt-10">
+                    <img src="https://i.ibb.co/8BLjmqz/avatar-2.png" alt="profile pictre" className="w-12 h-12" />
+                    <p className="text-base font-semibold leading-4 my-2 text-gray-800 dark:text-white  ">Alan Max</p>
+                    <p className="text-base leading-4 text-center text-gray-600 dark:text-gray-200  ">Designer</p>
                 </div>
             </div>
             <div>
-                <div class="group w-full bg-white dark:bg-gray-800  relative flex flex-col items-center hover:bg-rose-500 cursor-pointer shadow-md md:p-12 p-6">
-                    <div class="text-gray-600 dark:text-gray-200   group-hover:text-white flex flex-col items-center">
+                <div className="group w-full bg-white dark:bg-gray-800  relative flex flex-col items-center hover:bg-rose-500 cursor-pointer shadow-md md:p-12 p-6">
+                    <div className="text-gray-600 dark:text-gray-200   group-hover:text-white flex flex-col items-center">
                         <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
                                 <path d="M25.2578 14.3309H19.2969C19.3988 9.55819 20.6309 9.01642 22.1785 8.86178L22.7753 8.78051V3.53242L22.0874 3.57292C20.0666 3.69783 17.8323 4.09805 16.3417 6.11965C15.035 7.89183 14.459 10.7871 14.459 15.2316V23.4673H25.2578V14.3309Z" fill="currentColor" />
@@ -118,9 +118,9 @@ const Testimonial = () => {
                                 </clipPath>
                             </defs>
                         </svg>
-                        <p class="xl:w-80 text-base leading-normal text-center mt-4">When our designs need an expert opinion or approval, I know I can rely on your agency Thank you for all your help-I will be recommending you to everyone</p>
+                        <p className="xl:w-80 text-base leading-normal text-center mt-4">When our designs need an expert opinion or approval, I know I can rely on your agency Thank you for all your help-I will be recommending you to everyone</p>
                     </div>
-                    <div class="text-white dark:text-gray-800 group-hover:text-rose-500 absolute bottom-0 -mb-6">
+                    <div className="text-white dark:text-gray-800 group-hover:text-rose-500 absolute bottom-0 -mb-6">
                         <svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_dd)">
                                 <path d="M17 19L28.2583 3.25H5.74167L17 19Z" fill="currentColor" />
@@ -145,10 +145,10 @@ const Testimonial = () => {
                         </svg>
                     </div>
                 </div>
-                <div class="flex flex-col items-center justify-center mt-10">
-                    <img src="https://i.ibb.co/y0KCX7p/avatar-3.png" alt="profile pictre" class="w-12 h-12" />
-                    <p class="text-base font-semibold leading-4 my-2 text-gray-800 dark:text-white  ">Kera Joo</p>
-                    <p class="text-base leading-4 text-center text-gray-600 dark:text-gray-200  ">Support</p>
+                <div className="flex flex-col items-center justify-center mt-10">
+                    <img src="https://i.ibb.co/y0KCX7p/avatar-3.png" alt="profile pictre" className="w-12 h-12" />
+                    <p className="text-base font-semibold leading-4 my-2 text-gray-800 dark:text-white  ">Kera Joo</p>
+                    <p className="text-base leading-4 text-center text-gray-600 dark:text-gray-200  ">Support</p>
                 </div>
             </div>
           
