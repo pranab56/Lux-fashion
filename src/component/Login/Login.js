@@ -1,20 +1,24 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../Page/Firebase.init";
-import {useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle} from "react-firebase-hooks/auth";
+import {useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle, useUpdatePassword} from "react-firebase-hooks/auth";
+import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid'
 import Loading from "../../Page/Loading";
 import { useForm } from "react-hook-form";
 import useToken from "../../Page/useToken";
+import { async } from "@firebase/util";
 
 const Login = () => {
   const navigate=useNavigate()
   const [signInWithGoogle, GoogleUser, GoogleLoading, GoogleError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, ResetError] = useSendPasswordResetEmail(auth);
+  const [updatePassword, updating, resetError] = useUpdatePassword(auth);
   const { register, formState: { errors }, handleSubmit,} = useForm();
   const [token]=useToken(GoogleUser ||user)
   const location=useLocation()
   const from = location.state?.from?.pathname || "/";
+
   
   const onSubmit = async (data) => {
   await signInWithEmailAndPassword(data.email,data.password)
@@ -22,15 +26,27 @@ const Login = () => {
    await data.target.reset();
 };
 
+function myFunction() {
+  var x = document.getElementById("pronab");
+  if (x.type === "password") {
+    x.type = "text";
+  }
   
-  
+  else {
+    x.type = "password";
+  }
+}
+
+
+
+
     if(token){
       navigate(from, { replace: true });
       
       
       
     }
-  if (GoogleLoading || loading) {
+  if (GoogleLoading || loading || updating) {
     return <Loading></Loading>
   }
   return (
@@ -56,7 +72,7 @@ const Login = () => {
         },
       })}
       className="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your Email</label>
+      <label htmlFor="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your Email</label>
   </div>
   {errors.email?.type === "required" && (
             <p className="text-red-500"><span>{errors.email.message}</span></p>
@@ -67,8 +83,8 @@ const Login = () => {
         
 
 
-<div className="relative mt-7 z-0 mb-6 group">
-      <input type="password" name="email" id="floating_repeat_password"
+<div className="relative flex  mt-7 z-0  group">
+      <input type="password"  name="password" id="pronab"
         {...register("password", {
                 required: {
                   value: true,
@@ -79,21 +95,44 @@ const Login = () => {
                   message: "Provide At last 6 character ",
                 },
               })}
+              
+              
       className="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your Password</label>
+
+
+<EyeIcon onClick={()=>myFunction()} className="h-5 w-5 mt-3 absolute ml-72 text-blue-500"/>
+
+
+
+        
+
+      <label htmlFor="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your Password</label>
+      
   </div>
+  {error && <p className="text-red-500"> {error.message}</p>}
+ 
+  <button onClick={async () => {
+          await updatePassword();
+          alert('Updated password');
+        }} className="btn btn-link ml-40">Forgot Password?</button>
+
+
+
+
+
   {errors.password?.type === "required" && (
             <p className="text-red-500">{errors.password.message}</p>
           )}
           {errors.password?.type === "minLength" && (
             <p className="text-red-500">{errors.password.message}</p>
           )}
+          
 
 
 
 
          
-          <div className="mt-10">
+          <div className="mt-4">
             <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-rose-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Login
             </button>

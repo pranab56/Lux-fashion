@@ -1,5 +1,5 @@
 import React from 'react';
-import { createContext } from 'react';
+
 
 import Scrollbars from 'react-custom-scrollbars-2';
 
@@ -11,7 +11,7 @@ import Product from './Product';
 
 
 const Products = () => {
- const [products,isLoading]=UseProduct();
+ const [products,isLoading,refetch]=UseProduct();
  if(isLoading){
   return <Loading></Loading>
  }
@@ -26,9 +26,10 @@ const Products = () => {
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
           
             {
-                products.map(product=><Product
+                products?.map(product=><Product
                 key={product._id}
                 product={product}
+                refetch={refetch}
                 ></Product>)
             }
            

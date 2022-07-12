@@ -5,8 +5,10 @@ import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateP
 import auth from '../../Page/Firebase.init';
 import Loading from '../../Page/Loading';
 import useToken from '../../Page/useToken';
+import { useState } from 'react';
 
 const Register = () => {
+  const [terms,setTerms]=useState(false);
   const navigate=useNavigate()
     const { register, formState: { errors }, handleSubmit,} = useForm();
     const [createUserWithEmailAndPassword, user,loading,error, ] = useCreateUserWithEmailAndPassword(auth);
@@ -16,10 +18,16 @@ const Register = () => {
     const [token]=useToken(user ||  updating)
   
     const onSubmit = async (data) => {
-       await createUserWithEmailAndPassword(data.email,data.password)
-       await sendEmailVerification()
-       await updateProfile({ displayName:data.name })
+      if(terms){
+        await createUserWithEmailAndPassword(data.email,data.password)
+        await sendEmailVerification()
+        await updateProfile({ displayName:data.name })
+      }
+       
+      
+       
        await data.target?.reset();
+       
     };
     if(token){
       
@@ -51,7 +59,7 @@ const Register = () => {
         },
       })}
       className="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
+      <label htmlFor="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
   </div>
   {errors.name?.type === "required" && (
             <p className="text-red-500"><span>{errors.name.message}</span></p>
@@ -75,7 +83,7 @@ const Register = () => {
         },
       })}
       className="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+      <label htmlFor="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
   </div>
   {errors.email?.type === "required" && (
             <p className="text-red-500"><span>{errors.email.message}</span></p>
@@ -99,7 +107,7 @@ const Register = () => {
                 },
               })}
       className="block py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+      <label htmlFor="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
   </div>
   {errors.password?.type === "required" && (
             <p className="text-red-500"><i>{errors.password.message}</i></p>
@@ -107,10 +115,25 @@ const Register = () => {
           {errors.password?.type === "minLength" && (
             <p className="text-red-500"><i>{errors.password.message}</i></p>
           )}
+ <input onClick={()=>setTerms(!terms)} type="checkbox" name="terms" id="terms"
+  {...register("terms", {
+    required: {
+      value: true,
+      message: "Terms and condition is required",
+    },
+    pattern: {
+      value:{
 
+      }
+       
+    },
+  })}
+ />
+  <label className={terms ? 'text-primary font-bold ml-2':'text-red-500 font-bold ml-2'} htmlFor="terms">Terms and condition</label>
 
             <div className="mt-10">
                 <button
+                disabled={!terms}
                     className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-rose-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                     Register
                 </button>

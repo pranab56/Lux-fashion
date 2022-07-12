@@ -2,13 +2,13 @@ import {useQuery } from 'react-query'
 
 
 const UseProduct = () => {
-    const { isLoading,data:products } = useQuery('products', () =>
+    const { isLoading,data:products,refetch } = useQuery('products', () =>
     fetch('http://localhost:5000/shop').then(res =>
       res.json()
     )
   )
  
-  return [products,isLoading]
+  return [products,isLoading,refetch]
 };
 
 

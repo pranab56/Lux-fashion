@@ -14,7 +14,7 @@ const Testimonial = () => {
                 <div className="group w-full bg-white dark:bg-gray-800  relative flex flex-col items-center hover:bg-rose-500 cursor-pointer shadow-md md:p-12 p-6">
                     <div className="text-gray-600 dark:text-gray-200   group-hover:text-white flex flex-col items-center">
                         <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0)">
+                            <g clipPath="url(#clip0)">
                                 <path d="M25.2578 14.3309H19.2969C19.3988 9.55819 20.6309 9.01642 22.1785 8.86178L22.7753 8.78051V3.53242L22.0874 3.57292C20.0666 3.69783 17.8323 4.09805 16.3417 6.11965C15.035 7.89183 14.459 10.7871 14.459 15.2316V23.4673H25.2578V14.3309Z" fill="currentColor" />
                                 <path d="M11.48 23.4673V14.3309H5.59859C5.70049 9.55819 6.89283 9.01642 8.44042 8.86178L8.99749 8.78051V3.53242L8.34931 3.57292C6.32844 3.69783 4.07421 4.09805 2.5836 6.11965C1.27707 7.89183 0.681147 10.7871 0.681147 15.2316V23.4673H11.48Z" fill="currentColor" />
                             </g>
@@ -33,7 +33,7 @@ const Testimonial = () => {
                             </g>
                             <defs>
                                 <filter id="filter0_dd" x="0.741699" y="0.25" width="32.5167" height="27.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                                     <feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow" />
                                     <feOffset dy="4" />
@@ -61,7 +61,7 @@ const Testimonial = () => {
                 <div className="group w-full bg-white dark:bg-gray-800  relative flex flex-col items-center hover:bg-rose-500 cursor-pointer shadow-md md:p-12 p-6">
                     <div className="text-gray-600 dark:text-gray-200   group-hover:text-white flex flex-col items-center">
                         <svg className="" width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0)">
+                            <g clipPath="url(#clip0)">
                                 <path d="M25.2578 14.3309H19.2969C19.3988 9.55819 20.6309 9.01642 22.1785 8.86178L22.7753 8.78051V3.53242L22.0874 3.57292C20.0666 3.69783 17.8323 4.09805 16.3417 6.11965C15.035 7.89183 14.459 10.7871 14.459 15.2316V23.4673H25.2578V14.3309Z" fill="currentColor" />
                                 <path d="M11.48 23.4673V14.3309H5.59859C5.70049 9.55819 6.89283 9.01642 8.44042 8.86178L8.99749 8.78051V3.53242L8.34931 3.57292C6.32844 3.69783 4.07421 4.09805 2.5836 6.11965C1.27707 7.89183 0.681147 10.7871 0.681147 15.2316V23.4673H11.48Z" fill="currentColor" />
                             </g>
@@ -80,7 +80,7 @@ const Testimonial = () => {
                             </g>
                             <defs>
                                 <filter id="filter0_dd" x="0.741699" y="0.25" width="32.5167" height="27.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                                     <feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow" />
                                     <feOffset dy="4" />
@@ -108,7 +108,7 @@ const Testimonial = () => {
                 <div className="group w-full bg-white dark:bg-gray-800  relative flex flex-col items-center hover:bg-rose-500 cursor-pointer shadow-md md:p-12 p-6">
                     <div className="text-gray-600 dark:text-gray-200   group-hover:text-white flex flex-col items-center">
                         <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0)">
+                            <g clipPath="url(#clip0)">
                                 <path d="M25.2578 14.3309H19.2969C19.3988 9.55819 20.6309 9.01642 22.1785 8.86178L22.7753 8.78051V3.53242L22.0874 3.57292C20.0666 3.69783 17.8323 4.09805 16.3417 6.11965C15.035 7.89183 14.459 10.7871 14.459 15.2316V23.4673H25.2578V14.3309Z" fill="currentColor" />
                                 <path d="M11.48 23.4673V14.3309H5.59859C5.70049 9.55819 6.89283 9.01642 8.44042 8.86178L8.99749 8.78051V3.53242L8.34931 3.57292C6.32844 3.69783 4.07421 4.09805 2.5836 6.11965C1.27707 7.89183 0.681147 10.7871 0.681147 15.2316V23.4673H11.48Z" fill="currentColor" />
                             </g>
@@ -127,7 +127,7 @@ const Testimonial = () => {
                             </g>
                             <defs>
                                 <filter id="filter0_dd" x="0.741699" y="0.25" width="32.5167" height="27.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                                     <feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow" />
                                     <feOffset dy="4" />
