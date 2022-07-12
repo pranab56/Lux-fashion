@@ -4,10 +4,11 @@ import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Page/Firebase.init';
 import { useEffect } from 'react';
+import Loading from '../../Page/Loading';
 
 
 const UpdateProfile = () => {
-  const [user]=useAuthState(auth);
+  const [user,loading]=useAuthState(auth);
   const { register, formState: { errors }, handleSubmit,} = useForm();
   const onSubmit = (data) => {
     const imageKey='89faf5ad1fc22b4865feac0683dcdff1';
@@ -47,7 +48,9 @@ const UpdateProfile = () => {
       
     })
 
-     
+     if(loading){
+      return <Loading></Loading>
+     }
 
 
   }

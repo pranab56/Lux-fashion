@@ -6,7 +6,8 @@ import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid'
 import Loading from "../../Page/Loading";
 import { useForm } from "react-hook-form";
 import useToken from "../../Page/useToken";
-import { async } from "@firebase/util";
+import toast from 'react-hot-toast';
+
 
 const Login = () => {
   const navigate=useNavigate()
@@ -23,8 +24,23 @@ const Login = () => {
   const onSubmit = async (data) => {
   await signInWithEmailAndPassword(data.email,data.password)
     await sendPasswordResetEmail(data.email)
+   
    await data.target.reset();
 };
+const resetPassword=(event)=>{
+ const email=document.getElementById('email').value;
+ if(email){
+  updatePassword(email);
+  toast.success('please check your email')
+ }
+ else{
+  toast.error('please inter your email address')
+ }
+  
+
+}
+
+
 
 function myFunction() {
   var x = document.getElementById("pronab");
@@ -59,7 +75,7 @@ function myFunction() {
         <form className="mt-6" onSubmit={handleSubmit(onSubmit)}>
         
 <div className="relative mt-10 z-0 mb-6 group">
-      <input type="email" name="email" id="floating_repeat_password"
+      <input type="email" name="email" id="email"
        {...register("email", {
         required: {
           value: true,
@@ -111,10 +127,7 @@ function myFunction() {
   </div>
   {error && <p className="text-red-500"> {error.message}</p>}
  
-  <button onClick={async () => {
-          await updatePassword();
-          alert('Updated password');
-        }} className="btn btn-link ml-40">Forgot Password?</button>
+  <button onClick={()=>resetPassword()} className="btn btn-link ml-40">Forgot Password?</button>
 
 
 

@@ -11,8 +11,10 @@ const Register = () => {
   const [terms,setTerms]=useState(false);
   const navigate=useNavigate()
     const { register, formState: { errors }, handleSubmit,} = useForm();
-    const [createUserWithEmailAndPassword, user,loading,error, ] = useCreateUserWithEmailAndPassword(auth);
-    const [sendEmailVerification, sending, VerifyError] = useSendEmailVerification(auth);
+
+    const [createUserWithEmailAndPassword, user,loading,error, ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+
+    // const [sendEmailVerification, sending, VerifyError] = useSendEmailVerification(auth);
     const [updateProfile, updating, ProfileError] = useUpdateProfile(auth);
 
     const [token]=useToken(user ||  updating)
@@ -20,7 +22,7 @@ const Register = () => {
     const onSubmit = async (data) => {
       if(terms){
         await createUserWithEmailAndPassword(data.email,data.password)
-        await sendEmailVerification()
+        
         await updateProfile({ displayName:data.name })
       }
        
