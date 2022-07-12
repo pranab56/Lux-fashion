@@ -15,6 +15,7 @@ import UpdateProfile from './component/Login/UpdateProfile';
 import ProductDetails from './component/Products/ProductDetails';
 import CheckOut from './component/CheckOut';
 import OrderModal from './component/Products/OrderModal';
+import Order from './component/Order/Order';
 
 
 
@@ -36,8 +37,11 @@ function App() {
         <Route path='/blog' element={<Blogs></Blogs>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='checkout' element={<CheckOut></CheckOut>}></Route>
-        <Route path='/OrderModel' element={<OrderModal></OrderModal>}></Route>
+        
+        <Route path='/OrderModel' element={<OrderModal></OrderModal>}>
+          <Route path='order' element={<Order></Order>}/>
+        <Route path='checkout' element={<CheckOut></CheckOut>}/>
+        </Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='myProfile' element={
         <RequireAuth>

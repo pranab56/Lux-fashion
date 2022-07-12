@@ -1,16 +1,22 @@
 import React from 'react';
-import NoteState from '../../Page/noteState';
 
 
 
-const ProductDetail = ({product,handleProduct}) => {
+
+
+const ProductDetail = ({product,handleProduct,handleDescresing,handleIncresing,incresing}) => {
   
-
+   
+  
+    
     
    
 
     return (
         <div>
+
+         
+
             <div className="min-w-screen min-h-screen flex items-center relative">
         <div className="w-full max-w-5xl rounded bg-white shadow-2xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
           <div className="md:flex items-center -mx-10">
@@ -43,6 +49,15 @@ const ProductDetail = ({product,handleProduct}) => {
                 </p>
               </div>
               <div>
+              <button onClick={()=>handleDescresing()} class="w-12 text-3xl border border-rose-500 bg-rose-500 rounded-lg">
+                   -
+                  </button>
+                  <input class="w-12 m-0 text-2xl px-1 text-center md:text-right border-0  focus:outline-none rounded-md" type="number" name="quantity" id='quantity' value={incresing} placeholder="1"/>
+                  <button onClick={()=>handleIncresing()} class="w-12 text-3xl border border-rose-500 bg-rose-500 rounded-lg">
+                 +
+                  </button><br /><br />
+
+
                 <div className="inline-block align-bottom mr-5">
                   <span className="text-2xl leading-none align-baseline">
                     $

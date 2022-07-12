@@ -32,7 +32,7 @@ const Testimonial = () => {
                                 <path d="M17 19L28.2583 3.25H5.74167L17 19Z" fill="currentColor" />
                             </g>
                             <defs>
-                                <filter id="filter0_dd" x="0.741699" y="0.25" width="32.5167" height="27.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <filter id="filter0_dd" x="0.741699" y="0.25" width="32.5167" height="27.75" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                                     <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                                     <feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow" />
@@ -79,7 +79,7 @@ const Testimonial = () => {
                                 <path d="M17 19L28.2583 3.25H5.74167L17 19Z" fill="currentColor" />
                             </g>
                             <defs>
-                                <filter id="filter0_dd" x="0.741699" y="0.25" width="32.5167" height="27.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <filter id="filter0_dd" x="0.741699" y="0.25" width="32.5167" height="27.75" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                                     <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                                     <feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow" />
@@ -126,7 +126,7 @@ const Testimonial = () => {
                                 <path d="M17 19L28.2583 3.25H5.74167L17 19Z" fill="currentColor" />
                             </g>
                             <defs>
-                                <filter id="filter0_dd" x="0.741699" y="0.25" width="32.5167" height="27.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <filter id="filter0_dd" x="0.741699" y="0.25" width="32.5167" height="27.75" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                                     <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                                     <feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow" />

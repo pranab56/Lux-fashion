@@ -7,11 +7,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import Loading from "../../Page/Loading";
 import { useState } from "react";
-import useProduct from "../../Hooks/useProduct";
+
 
 const Heder = () => {
   const [open, setOpen] = useState(true);
-  const [products, setProducts] = useProduct();
+  
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
   const logout = () => {

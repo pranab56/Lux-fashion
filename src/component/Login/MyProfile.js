@@ -74,7 +74,7 @@ const MyProfile = () => {
         </div>
        </div>
        <div className="text-center mt-6 mb-6">
-       <label htmlFor="UpdateProfile" onclick={()=>setUpdate(user)} className="btn btn-success text-white">
+       <label htmlFor="UpdateProfile" onClick={()=>setUpdate(user)} className="btn btn-success text-white">
               Update Profile
              </label>
        </div>
