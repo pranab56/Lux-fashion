@@ -11,7 +11,7 @@ const Order = ({product,setDelete}) => {
   return (
 
     
-   <div className='pronab'>
+   <div>
      
      <div class="mb-12 pr-20 py-6 border-t border-b border-gray-200">
             <div class="flex flex-wrap items-center -mx-4 mb-6 md:mb-3">

@@ -6,12 +6,14 @@ import ProductDetail from "./ProductDetail";
 import toast from 'react-hot-toast';
 import noteState from "../../Page/noteState";
 import NoteStates from "../../Page/NoteStates";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../Page/Firebase.init";
 
 
 
 
 const ProductDetails = () => {
-
+const [user]=useAuthState(auth)
   const [incresing,setIncresing]=useState(0);
   
 
@@ -31,6 +33,7 @@ const ProductDetails = () => {
   const [products, setProducts] = useState([]);
   
   const [cart,setCart]=useState([]);
+  
 
   useEffect(() => {
       fetch(`http://localhost:5000/productdetails/${id}`)
@@ -38,9 +41,7 @@ const ProductDetails = () => {
       .then((data) => setProducts([data]));
     }, [id]);
 
-   const quantity={
-    quantity:incresing
-   }
+  
    
     
     
@@ -54,6 +55,7 @@ const ProductDetails = () => {
 
       const orderProduct={
         img:product.img,
+        email:user.email,
         name:product.name,
         price:product.price,
         quantity:incresing,

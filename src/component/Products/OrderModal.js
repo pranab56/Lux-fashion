@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { Outlet } from 'react-router-dom';
 import CheckOut from '../CheckOut';
 import Order from '../Order/Order';
@@ -8,6 +9,7 @@ import ListName from '../Order/ListName';
 import {useQuery } from 'react-query'
 import Loading from '../../Page/Loading';
 import DeleteModal from '../Order/DeleteModal';
+import auth from '../../Page/Firebase.init';
 
 
 
@@ -16,11 +18,20 @@ import DeleteModal from '../Order/DeleteModal';
 
 const OrderModal = () => {
   const [deleteOrder,setDelete]=useState(null);
-  const { isLoading,data:product ,refetch} = useQuery('orderProduct', () =>
-    fetch('http://localhost:5000/order').then(res =>
+  const [user]=useAuthState(auth);
+  
+  const { isLoading,data:product ,refetch} = useQuery(('orderProduct'), () =>
+    fetch(`http://localhost:5000/order?email=${user?.email}`,{
+      method:'GET',
+      headers:{
+          'authorization':`bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then(res =>
       res.json()
     )
   )
+
+  
   if(isLoading){
     return <Loading></Loading>
   }
@@ -47,7 +58,9 @@ const OrderModal = () => {
             </Scrollbars>
          <Outlet/>
          <div>
-         <CheckOut></CheckOut>
+         
+          <CheckOut product={product}></CheckOut>
+         
          </div>
          {
           deleteOrder && <DeleteModal
