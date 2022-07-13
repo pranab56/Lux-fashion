@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductDetail from "./ProductDetail";
 import toast from 'react-hot-toast';
+import noteState from "../../Page/noteState";
+import NoteStates from "../../Page/NoteStates";
 
 
 
@@ -91,6 +93,7 @@ const ProductDetails = () => {
         ></ProductDetail>)
       }
 
+     
      
      
     </div>
